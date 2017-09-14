@@ -2,11 +2,11 @@ import paho.mqtt.client as mqtt
 
 def on_connect(client, userdata, rc):
     print("Connect" + str(rc))
-    client.subscribe("eyegrid/rpi") 
+    client.subscribe("image") 
 
 def on_message(client, userdata, msg):
     print "Topic : ", msg.topic
-    f = open("output.jpg", "w")  #there is a output.jpg which is different
+    f = open("/tmp/output.webp", "w")  
     f.write(msg.payload)
     f.close()
 

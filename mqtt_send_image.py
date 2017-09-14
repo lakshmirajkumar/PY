@@ -6,14 +6,12 @@ mqttc = mqtt.Client()
 
 mqttc.connect("anttgrid.com", 1883)
 
-
-
-f=open("b.jpg", "rb")
+f=open("b.webp", "rb")
 fileContent = f.read()
 byteArr = bytearray(fileContent)
 #print byteArr
 mqttc.loop_start()
-mqttc.publish("eyegrid/rpi", byteArr)
+mqttc.publish("image", byteArr)
 mqttc.loop_stop()
 mqttc.disconnect()
 
